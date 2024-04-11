@@ -1,1 +1,0 @@
-Using memoization, we can do the same what is done by conjugate gradients in quadratic case, but without using the formulas
