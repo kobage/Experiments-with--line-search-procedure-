@@ -1,1 +1,20 @@
+Before running the "main.py", run  the script:
 
+import numpy as np
+from sklearn.datasets import fetch_openml
+dataset = fetch_openml("mnist_784")
+X, y = dataset["data"], dataset["target"]
+y=np.array(y)
+np.save('y', y)
+X=np.array(X)
+np.save('X', X)
+
+which will load and store data from the dataset. After that, you can run "mnist.py", which will read data from files and run faster.
+The squared ReLu is used Instead of ReLu.
+
+A Visual Studio 22 C++ project can be easily organized with files from this repo. 
+1.	The two-layer network's data files and the initial weights and biases' initial values are prepared according to the Python file. This allows their results and speed to be compared;
+2.	Select Release mode for the project;
+3.	The following link https://aleksandarhaber.com/starting-with-eigen-c-matrix-library/#google_vignette is useful to install and connect Eigen; 
+4.	Under "Project -> Properties -> C/C++ -> Preprocessor -> Preprocessor Definitions" add _CRT_SECURE_NO_WARNINGS;
+5.	The data folder, which contains the data of the "iris" and "mnist" datasets, is used by the composite objective functions. This folder should be searched in the path from the current folder to the root folder, as in GitHub's experiments-on-numerical-optimization repo. We do not duplicate it here due to the large volume.
