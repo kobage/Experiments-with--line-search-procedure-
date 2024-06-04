@@ -18,3 +18,22 @@ A Visual Studio 22 C++ project can be easily organized with files from this repo
 3.	The following link https://aleksandarhaber.com/starting-with-eigen-c-matrix-library/#google_vignette is useful to install and connect Eigen; 
 4.	Under "Project -> Properties -> C/C++ -> Preprocessor -> Preprocessor Definitions" add _CRT_SECURE_NO_WARNINGS;
 5.	The data folder, which contains the data of the "iris" and "mnist" datasets, is used by the composite objective functions. This folder should be searched in the path from the current folder to the root folder, as in GitHub's experiments-on-numerical-optimization repo. We do not duplicate it here due to the large volume.
+
+We can launch our solver in several ways.
+a. Similar to [10]. We uncomment only the call
+      run_comp_probl_tests();
+   in the "source.cpp", run it and select
+      5. Problem: SMG, cubic penalties, size: 200
+   We can change the size from the void makeDoubleCompTestsVector(void) function, file "Drivers.h".
+b. Using the Eigen library, but without improvements in the line search. For this, we again run
+      run_comp_probl_tests();
+   but select the line
+      6. Problem: SMG, with cubic penalty function, using Eigen size: 200
+c. Using memoization and directional derivatives, but without Eigen. This time:
+     run_mem_comp_probl_tests();
+   and select
+     5. Problem: SMG, cubic penalties, size: 200
+d. Using memorization, directional derivatives, and Eigen. We run
+     run_mem_comp_
+and select
+     6. Problem: SMG, with cubic penalty function, using Eigen size: 200
